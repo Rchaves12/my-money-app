@@ -6,6 +6,6 @@ module.exports = function(server){
     server.use('/api', router)
 
     //Rotas de Ciclo de Pagamento
-    const BillingCycle = this.require('../api/billingCycle/billingCycleService')
+    const BillingCycle = require('../api/billingCycle/billingCycleService')
     BillingCycle.register(router,'billingCycle')
 }
