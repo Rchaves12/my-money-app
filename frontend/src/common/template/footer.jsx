@@ -4,7 +4,7 @@ export default props => (
     <footer className='main-footer'>
         <strong>
             Copyright &copy; 2019
-            <a href="#"> Chaves</a>.
+            <a href="#"> &copy;haves</a>.
         </strong>
     </footer>
 )
