@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux'
 import { reduxForm, Field } from 'redux-form'
 
 import { init } from './billingCycleActions'
-import labelAndInput from '../common/form/labelAndInput'
+import LabelAndInput from '../common/form/labelAndInput'
+import CreditList from './creditList'
 
 class BillingCycleForm extends Component {
     render(){
@@ -12,12 +13,13 @@ class BillingCycleForm extends Component {
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={labelAndInput} readOnly={readOnly}
-                    label='Nome' cols='12 4' placeholder='Informe o Nome'/>
-                    <Field name='month' cols='12 4' component= {labelAndInput} readOnly={readOnly}
-                    label='Mês' type='number' placeholder='Informe o Mês'/>
-                    <Field name='year' component={labelAndInput} readOnly={readOnly}
-                    label='Ano' type='number' cols='12 4' placeholder='Informe o Ano' />
+                    <Field name='name' component={LabelAndInput} readOnly={readOnly}
+                        label='Nome' cols='12 4' placeholder='Informe o Nome'/>
+                    <Field name='month' cols='12 4' component= {LabelAndInput} readOnly={readOnly}
+                        label='Mês' type='number' placeholder='Informe o Mês'/>
+                    <Field name='year' component={LabelAndInput} readOnly={readOnly}
+                        label='Ano' type='number' cols='12 4' placeholder='Informe o Ano' />
+                    <CreditList cols='12 6' />
                 </div>
                 <div className='box-footer'>
                     <button type="submit" className={`btn btn-${this.props.submitClass}`}>
