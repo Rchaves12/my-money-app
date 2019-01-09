@@ -9,8 +9,7 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
-import { selectTab, showTabs } from '../common/tab/tabActions'
-import { create, update, remove } from './billingCycleActions'
+import { init, create, update, remove } from './billingCycleActions'
 
 import List from './billingCycleList'
 import Form from './billingCycleForm'
@@ -18,8 +17,7 @@ import Form from './billingCycleForm'
 class BillingCylce extends Component {
 
     componentWillMount(){
-        this.props.selectTab('tabList')
-        this.props.showTabs('tabList', 'tabCreate')
+        this.props.init()
     }
 
     render() {
@@ -37,13 +35,13 @@ class BillingCylce extends Component {
                         <TabsContent>
                             <TabContent id='tabList'><List /></TabContent>
                             <TabContent id='tabCreate'>
-                                <Form onSubmit={this.props.create} />
+                                <Form onSubmit={this.props.create} submitLabel='Incluir' submitClass='primary' />
                             </TabContent>
                             <TabContent id='tabUpdate'>
-                                <Form onSubmit={this.props.update}/>
+                                <Form onSubmit={this.props.update} submitLabel='Alterar' submitClass='info'/>
                             </TabContent>
                             <TabContent id='tabDelete'>
-                                <Form onSubmit={this.props.remove} readOnly={true}/>
+                                <Form onSubmit={this.props.remove} readOnly={true} submitLabel='Excluir' submitClass='danger'/>
                             </TabContent>
                         </TabsContent>
                     </Tabs>
@@ -54,5 +52,5 @@ class BillingCylce extends Component {
 
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({init, create, update, remove}, dispatch)
 export default connect(null, mapDispatchToProps)(BillingCylce) 
