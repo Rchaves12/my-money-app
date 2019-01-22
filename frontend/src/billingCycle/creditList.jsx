@@ -8,8 +8,10 @@ class CreditList extends Component{
     renderRows(){
         return(
             <tr>
-                <td><Field component={Input} name='credits[0].name' placeholder='Informe o Nome' /></td>
-                <td><Field component={Input} name='credits[0].value' type='number' placeholder='Informe o Valor' /></td>
+                <td><Field component={Input} name='credits[0].name' 
+                    readOnly={this.props.readOnly} placeholder='Informe o Nome' /></td>
+                <td><Field component={Input} name='credits[0].value' 
+                    readOnly={this.props.readOnly} type='number' placeholder='Informe o Valor' /></td>
                 <td>
                     <button type='button' className='btn btn-sucess'><i className="fa fa-plus"></i></button>
                     <button type='button' className='btn btn-warning'><i className="fa fa-clone"></i></button>
